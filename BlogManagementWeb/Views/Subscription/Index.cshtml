@@ -1,0 +1,43 @@
+﻿@using Models;
+
+@model IEnumerable<Subscription>
+
+
+<h2>Blog Posts</h2>
+@*<div class="col text-end pt-1">
+    <a asp-controller="Subscription" asp-action="Subscribe" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i>Subscribe Blog</a>
+</div>*@
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Blog Title</th>
+                <th>Blog Category</th>
+                <th>Available Subscription</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sub in Model)
+            {
+                <tr>
+                    <td>@sub.Blog.BlogTitle</td>
+                    <td>@sub.Blog.BlogCategory</td>
+                    <td>@sub.Blog.SubscriptioNumber</td>
+                    <td>
+
+                        <a asp-action="UnSubscribe" asp-route-id="@sub.Id">UnSubscribe</a>
+                        <a asp-action="Subscribe" asp-route-id="@sub.Id">Subscribe</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No blog posts available.</p>
+}

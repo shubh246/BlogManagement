@@ -1,4 +1,4 @@
-using BlogMangementApi.Models;
+using BlogMangementApi;
 using Data;
 using Data.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddScoped<IBlogRepository,BlogRepository>();
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

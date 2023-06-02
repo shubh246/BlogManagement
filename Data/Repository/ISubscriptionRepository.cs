@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Data.Repository
 {
-    public interface ISubscriptionRepository:IRepository<Subscription>
+    public interface IBlogRepository:IRepository<Blog>
     {
-      void Update(Subscription sub);   
+      void Update(Blog blog);   
     }
 }

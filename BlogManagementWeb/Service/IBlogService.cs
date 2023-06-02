@@ -5,10 +5,10 @@ namespace BlogManagementWeb.Service
 {
     public interface IBlogService
     {
-        Task<IEnumerable<Blog>> GetblogsAsync();
-        Task<Blog> GetBlogByIdAsync(int id);
-        Task<Blog> CreateBlogAsync(Blog blog);
-        Task<Blog> UpdateBlogAsync(int id, Blog updatedblog);
+        Task<IEnumerable<Models.Blog>> GetblogsAsync();
+        Task<Models.Blog> GetBlogByIdAsync(int id);
+        Task<Models.Blog> CreateBlogAsync(Models.Blog blog);
+        Task<Models.Blog> UpdateBlogAsync(int id, Models.Blog updatedblog);
         Task DeleteBlogAsync(int id);
     }
 }

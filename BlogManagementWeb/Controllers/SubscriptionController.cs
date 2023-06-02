@@ -22,10 +22,16 @@ namespace BlogManagementWeb.Controllers
             ViewBag.Blogs = blogs;
             return View(subs);
         }
-        public IActionResult Subscribe()
-        {
-            return View();
-        }
+        //public ActionResult Subscribe()
+        //{
+             
+           
+
+            
+
+        //    return View();
+        //}
+
 
         [HttpPost]
         public async Task<IActionResult> Subscribe(Subscription subscription)

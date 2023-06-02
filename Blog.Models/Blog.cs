@@ -14,6 +14,8 @@ namespace Models
         [Column(TypeName = "char(20)")]
         public string BlogCategory { get; set; }
         public int SubscriptioNumber { get; set; }
+        public bool IsApproved { get; set; }
+        public bool IsRejected { get; set; }
 
 
     }

@@ -24,7 +24,7 @@ namespace BlogMangementApi.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            IEnumerable<Blog> blog = blogRepo.GetAll().ToList();
+            IEnumerable<Models.Blog> blog = blogRepo.GetAll().ToList();
             return Ok(blog);
         }
 
@@ -40,7 +40,7 @@ namespace BlogMangementApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Blog blog)
+        public IActionResult Create([FromBody] Models.Blog blog)
         {
             blogRepo.Add(blog);
             blogRepo.Save();
@@ -48,7 +48,7 @@ namespace BlogMangementApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Blog blog)
+        public IActionResult Update(int id, [FromBody] Models.Blog blog)
         {
             // Blog blog = _blogRepository.Get(u => u.Id == id);
             if (blog == null)
@@ -67,7 +67,7 @@ namespace BlogMangementApi.Controllers
         [Authorize(Roles = "admin")]
         public IActionResult Delete(int id)
         {
-            Blog blog = blogRepo.Get(u => u.Id == id);
+            Models.Blog blog = blogRepo.Get(u => u.Id == id);
             if (blog == null)
             {
                 return NotFound();

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Data.Repository
 {
-    public interface IBlogRepository:IRepository<Blog>
+    public interface IBlogRepository:IRepository<Models.Blog>
     {
-      void Update(Blog blog);   
+      void Update(Models.Blog blog);   
     }
 }

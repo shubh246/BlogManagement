@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogManagementWeb", "BlogManagementWeb\BlogManagementWeb.csproj", "{4801E1B1-65D8-4A24-A128-56D2F574E1CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogManagementWeb", "BlogManagementWeb\BlogManagementWeb.csproj", "{4801E1B1-65D8-4A24-A128-56D2F574E1CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogMangementApi", "BlogMangementApi\BlogMangementApi.csproj", "{3671FE90-609C-40CA-9084-104567D4B029}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogMangementApi", "BlogMangementApi\BlogMangementApi.csproj", "{3671FE90-609C-40CA-9084-104567D4B029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{8ABDA654-D875-492C-A194-DD2CE48B17F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{8ABDA654-D875-492C-A194-DD2CE48B17F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Blog.Models\Models.csproj", "{DAFD35D6-83F2-4B6E-8A71-72BB1A08EA48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Blog.Models\Models.csproj", "{DAFD35D6-83F2-4B6E-8A71-72BB1A08EA48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

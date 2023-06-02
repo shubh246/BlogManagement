@@ -29,8 +29,14 @@
                     <td>@sub.Blog.SubscriptioNumber</td>
                     <td>
 
-                        <a asp-action="UnSubscribe" asp-route-id="@sub.Id">UnSubscribe</a>
-                        <a asp-action="Subscribe" asp-route-id="@sub.Id">Subscribe</a>
+                        <form asp-action="Subscribe" method="post">
+                            <input type="hidden" name="id" value="@sub.BlogId" />
+                            <button type="submit">Approve</button>
+                        </form>
+                        <form asp-action="UnSubscribe" method="post">
+                            <input type="hidden" name="id" value="@sub.BlogId" />
+                            <button type="submit">Reject</button>
+                        </form>
                     </td>
                 </tr>
             }

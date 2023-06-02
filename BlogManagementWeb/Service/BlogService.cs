@@ -17,16 +17,16 @@ namespace BlogManagementWeb.Service
             // _apiBaseUrl = configuration.GetValue<string>("ServiceUrls:BlogManagementAPI");
             // _blogRepository = blogRepository;
         }
-        public async Task<IEnumerable<Blog>> GetblogsAsync()
+        public async Task<IEnumerable<Models.Blog>> GetblogsAsync()
         {
             HttpResponseMessage response = await _httpClient.GetAsync("/api/Blog/");
             response.EnsureSuccessStatusCode();
             string content = await response.Content.ReadAsStringAsync();
-            IEnumerable<Blog> blog = JsonConvert.DeserializeObject<IEnumerable<Blog>>(content);
+            IEnumerable<Models.Blog> blog = JsonConvert.DeserializeObject<IEnumerable<Models.Blog>>(content);
             return blog;
         }
 
-        public async Task<Blog> GetBlogByIdAsync(int id)
+        public async Task<Models.Blog> GetBlogByIdAsync(int id)
         {
             HttpResponseMessage response = await _httpClient.GetAsync($"/api/Blog/{id}");
             if (response.StatusCode == HttpStatusCode.NotFound)
@@ -35,11 +35,11 @@ namespace BlogManagementWeb.Service
             }
             response.EnsureSuccessStatusCode();
             string content = await response.Content.ReadAsStringAsync();
-            Blog blogPost = JsonConvert.DeserializeObject<Blog>(content);
+           Models.Blog blogPost = JsonConvert.DeserializeObject<Models.Blog>(content);
             return blogPost;
         }
 
-        public async Task<Blog> CreateBlogAsync(Blog blog)
+        public async Task<Models.Blog> CreateBlogAsync(Models.Blog blog)
         {
             string json = JsonConvert.SerializeObject(blog);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -47,12 +47,12 @@ namespace BlogManagementWeb.Service
             HttpResponseMessage response = await _httpClient.PostAsync("/api/Blog/", content);
             response.EnsureSuccessStatusCode();
             string responseContent = await response.Content.ReadAsStringAsync();
-            Blog createdBlogPost = JsonConvert.DeserializeObject<Blog>(responseContent);
+            Models.Blog createdBlogPost = JsonConvert.DeserializeObject<Models.Blog>(responseContent);
             return createdBlogPost;
 
         }
 
-        public async Task<Blog> UpdateBlogAsync(int id, Blog blog)
+        public async Task<Models.Blog> UpdateBlogAsync(int id, Models.Blog blog)
         {
             string json = JsonConvert.SerializeObject(blog);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -60,7 +60,7 @@ namespace BlogManagementWeb.Service
             HttpResponseMessage response = await _httpClient.PutAsync($"/api/Blog/{id}", content);
             response.EnsureSuccessStatusCode();
             string responseContent = await response.Content.ReadAsStringAsync();
-            Blog updatedBlog = JsonConvert.DeserializeObject<Blog>(responseContent);
+           Models.Blog updatedBlog = JsonConvert.DeserializeObject<Models.Blog>(responseContent);
             return updatedBlog;
         }
 

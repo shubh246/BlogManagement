@@ -3,6 +3,7 @@ using Data;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using AutoMapper;
+using Models.Dto;
 
 namespace BlogMangementApi.Controllers
 {
@@ -60,13 +61,14 @@ namespace BlogMangementApi.Controllers
                 //Email = subscrip.Email
 
             };
+            Subscription result = _mapper.Map<Subscription>(subscriptions);
 
-            _subRepo.Add(subscriptions);
+            _subRepo.Add(result);
             blog.SubscriptioNumber--;
             _blogRepo.Update(blog);
             //Subscription Sub = _mapper.Map<Subscription>(subscription);
             _subRepo.Save();
-            return Ok(subscription);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]

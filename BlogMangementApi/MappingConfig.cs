@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
 using Models;
+using Models.Dto;
 
 namespace BlogMangementApi
 {
-    public class MappingConfig:Profile
+    public class MappingConfig : Profile
     {
-       // CreateMap<Subscription,SubscriptionDto>().ReverseMap();
+        public MappingConfig()
+        {
+            CreateMap<Subscription, SubscriptionDto>().ReverseMap();
+        }
     }
 }

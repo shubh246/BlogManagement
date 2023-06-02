@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogManagementWeb.Controllers
 {
     [ApiController]
-    [Route("/api/Admin")]
-    public class AdminController : Controller
+    [Route("/api/Admin/[action]")]
+    public class AdminController : ControllerBase
     {
         private readonly IBlogRepository _blogRepository;
         public AdminController(IBlogRepository blogRepository)
@@ -28,7 +28,7 @@ namespace BlogManagementWeb.Controllers
             }
 
         }
-        [HttpDelete("{id}")]
+        [HttpGet]
         public IActionResult ApprovedBlog(int id)
         {
             if (id == 0)
@@ -47,7 +47,7 @@ namespace BlogManagementWeb.Controllers
             _blogRepository.Save();
             return Ok(blog);
         }
-        [HttpPut("{id}")]
+        [HttpGet]
         public IActionResult RejectBlog(int id)
         {
             if (id == 0)

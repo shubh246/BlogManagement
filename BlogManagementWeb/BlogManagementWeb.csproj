@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Blog.Models\Models.csproj" />
+    <ProjectReference Include="..\BlogMangementApi\BlogMangementApi.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 

@@ -15,6 +15,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkSto
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IBlogService, BlogService>();
+builder.Services.AddHttpClient<IAdminService, AdminService>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddHttpClient<ISubscriptionService, SubscriptionService>();
 builder.Services.AddRazorPages();

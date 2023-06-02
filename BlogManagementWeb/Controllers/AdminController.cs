@@ -23,6 +23,7 @@ namespace BlogManagementWeb.Controllers
             try
             {
                 await _adminService.ApproveBlog(id);
+                TempData["Success"] = "Approved";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)
@@ -38,6 +39,7 @@ namespace BlogManagementWeb.Controllers
             try
             {
                 await _adminService.RejectBlog(id);
+                TempData["Success"] = "Rejected Successfully";
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

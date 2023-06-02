@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BlogManagementWeb.Controllers
 {
     [ApiController]
-    [Route("/api/Admin/[action]")]
+    [Route("api/Admin/[action]")]
     public class AdminController : ControllerBase
     {
         private readonly IBlogRepository _blogRepository;

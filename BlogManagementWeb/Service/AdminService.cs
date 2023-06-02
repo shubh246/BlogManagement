@@ -27,7 +27,7 @@ namespace BlogManagementWeb.Service
 
         public async Task<bool> ApproveBlog(int id)
         {
-            var response = await _httpClient.PutAsync($"api/AdminController/ApprovedBlog?id={id}", null);
+            var response = await _httpClient.GetAsync($"api/Admin/ApprovedBlog?id={id}");
             if (response.IsSuccessStatusCode)
             {
                 return true;
@@ -44,7 +44,7 @@ namespace BlogManagementWeb.Service
 
         public async Task<bool> RejectBlog(int id)
         {
-            var response = await _httpClient.PutAsync($"api/AdminController/RejectBlog?id={id}", null);
+            var response = await _httpClient.GetAsync($"api/Admin/RejectBlog?id={id}");
             if (response.IsSuccessStatusCode)
             {
                 return true;

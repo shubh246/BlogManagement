@@ -32,6 +32,7 @@ namespace BlogManagementWeb.Controllers
             if (ModelState.IsValid)
             {
                 var createdBlog = await blogService.CreateBlogAsync(blog);
+                TempData["Success"] = "Blog Created Successfully";
                 return RedirectToAction(nameof(Index), new { id = createdBlog.Id });
             }
 
@@ -50,6 +51,7 @@ namespace BlogManagementWeb.Controllers
             if (ModelState.IsValid)
             {
                 await blogService.UpdateBlogAsync(id, blog);
+                TempData["Success"] = "Blog Updated Successfully";
                 return RedirectToAction(nameof(Index), new { id });
             }
 
@@ -67,6 +69,7 @@ namespace BlogManagementWeb.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await blogService.DeleteBlogAsync(id);
+          TempData["Success"] = "Blog Deletedd Successfully";
             return RedirectToAction(nameof(Index));
         }
     }

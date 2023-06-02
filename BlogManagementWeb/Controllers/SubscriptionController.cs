@@ -22,15 +22,15 @@ namespace BlogManagementWeb.Controllers
             ViewBag.Blogs = blogs;
             return View(subs);
         }
-        //public ActionResult Subscribe()
-        //{
-             
-           
+        public ActionResult Subscribe()
+        {
 
-            
 
-        //    return View();
-        //}
+
+
+
+            return View();
+        }
 
 
         [HttpPost]
@@ -39,6 +39,7 @@ namespace BlogManagementWeb.Controllers
             if (ModelState.IsValid)
             {
                 var createdSub = await _SubscriptionService.CreateSubscriptionAsync(subscription);
+                TempData["Success"] = "Subscription Created Successfully";
                 return RedirectToAction(nameof(Index), new { id = createdSub.Id });
             }
 
@@ -55,6 +56,7 @@ namespace BlogManagementWeb.Controllers
         public async Task<IActionResult> UnSubscribed(int id)
         {
             await _SubscriptionService.DeleteSubscriptionAsync(id);
+            TempData["Success"] = "Subscription Deleted Successfully";
             return RedirectToAction(nameof(Index));
         }
     }

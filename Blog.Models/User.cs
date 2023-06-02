@@ -15,10 +15,13 @@ namespace Models
         public int Id { get; set; }
 
         [Required]
+        [Column(TypeName = "varchar(20)")]
         public string Name { get; set; }
+        [Column(TypeName = "varchar(20)")]
         public string Email { get; set; }
+        [Column(TypeName = "varchar(20)")]
         public string Password { get; set; }
-
+        [Column(TypeName = "char(20)")]
         public string Role { get; set; }
     }
 }
